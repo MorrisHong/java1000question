@@ -5,28 +5,28 @@ import java.util.Scanner;
 class WordScrambleEx1 {
     public static void main(String[] args) {
           String[] strArr = { "CHANGE", "LOVE", "HOPE", "VIEW"};
-
-          String answer = getAnswer(strArr);
-          String question = getScrambledWord(answer);
-          
           Scanner scan = new Scanner(System.in);
           
-          while(true) {        	  
-        	  System.out.println("Question:"+question);
-        	  System.out.print("Your Answer is : " );
-        	  String myAnswer = scan.nextLine();
-        	  
-        	  if(myAnswer.equalsIgnoreCase("q")) {
-        		  System.out.println("프로그램 종료.");
-        		  break;
-        	  }else if(myAnswer.equalsIgnoreCase(answer)) {
-        		  System.out.println("정답입니다.");
-        		  answer = getAnswer(strArr);
-        		  question = getScrambledWord(answer);
-        		  continue;
-        	  }else {
-        		  System.out.println(myAnswer+"는/은 정답이 아닙니다. 다시 시도해주세요.");
-        		  continue;
+          outter:
+          while(true) {
+        	  String answer = getAnswer(strArr);
+              String question = getScrambledWord(answer);
+        	  while(true) {
+                  
+            	  System.out.println("Question:"+question);
+            	  System.out.print("Your Answer is : " );
+            	  String myAnswer = scan.nextLine();
+            	  
+            	  if(myAnswer.equalsIgnoreCase("q")) {
+            		  System.out.println("프로그램 종료.");
+            		  break;
+            	  }else if(myAnswer.equalsIgnoreCase(answer)) {
+            		  System.out.println("정답입니다.");
+            		  continue outter;
+            	  }else {
+            		  System.out.println(myAnswer+"는/은 정답이 아닙니다. 다시 시도해주세요.");
+            		  continue;
+            	  }
         	  }
         	  
           }
