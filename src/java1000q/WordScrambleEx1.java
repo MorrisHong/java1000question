@@ -61,7 +61,7 @@ class WordScrambleEx1 {
     	
     	while(count > 2) {
     		int ranIndex = (int)(Math.random() * answer.length());
-    		
+
     		if(hint[ranIndex] == '_') {
     			hint[ranIndex] = answer.charAt(ranIndex);
     			break;
